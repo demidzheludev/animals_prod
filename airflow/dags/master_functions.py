@@ -340,3 +340,4 @@ def staging_costs_dataset():
     cost_data['costs'] = cost_data.apply(lambda row: generate_cost(row), axis=1)
     
     return cost_data, x_conn
+
