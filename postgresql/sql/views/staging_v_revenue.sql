@@ -10,7 +10,7 @@ AS WITH cte AS (
             i.country_id,
             i.category_id,
             sum(o.rent_days::numeric * i.price_per_day) AS revenue_raw
-           FROM staging.orders o
+           FROM staging.total_orders o
              LEFT JOIN staging.items i ON o.id = i.order_id
           GROUP BY o.id, o.order_date, o.status, o.source_path, o.user_id, o.promocode, i.item_id, i.country_id, i.category_id
           ORDER BY o.id, i.item_id

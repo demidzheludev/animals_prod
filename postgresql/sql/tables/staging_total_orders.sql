@@ -1,4 +1,4 @@
-CREATE TABLE staging.orders (
+CREATE TABLE staging.total_orders (
 	id serial4 NOT NULL,
 	order_date date NOT NULL,
 	status varchar(30) NOT NULL,
