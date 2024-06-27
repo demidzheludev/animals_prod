@@ -4,7 +4,7 @@ from airflow.operators.python_operator import PythonOperator
 import clickhouse_connect
 
 def clickhouse_tranfser_to_data_function():
-    client = clickhouse_connect.get_client(host='158.160.169.66', username='', password='') 
+    client = clickhouse_connect.get_client(host='158.160.143.87', username='', password='') 
     inter_query = ''' SELECT idr.* FROM dwh.inter_data_revenue idr LEFT JOIN dwh.data_revenue dr ON idr.row_id = dr.row_id WHERE dr.row_id = 0 and idr.status <> 'pending' '''
     result = client.query(inter_query)
     result_data = result.result_rows

@@ -10,7 +10,7 @@ def get_inter_data_revenue():
     return data_revenue
 
 def clickhouse_tranfser_function():
-    client = clickhouse_connect.get_client(host='158.160.169.66', username='', password='') 
+    client = clickhouse_connect.get_client(host='158.160.143.87', username='', password='') 
     data_revenue = get_inter_data_revenue()
     database_name = 'dwh'
     table_name = 'inter_data_revenue'

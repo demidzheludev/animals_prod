@@ -10,7 +10,7 @@ def get_staging_costs():
     return data_costs
 
 def clickhouse_costs_transfer_function():
-    client = clickhouse_connect.get_client(host='158.160.169.66', username='', password='') 
+    client = clickhouse_connect.get_client(host='158.160.143.87', username='', password='') 
     costs = get_staging_costs()
     database_name = 'dwh'
     table_name = 'costs'
