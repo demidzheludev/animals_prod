@@ -1,4 +1,4 @@
-CREATE TABLE my_database.costs
+CREATE TABLE dwh.costs
 (
     `cost_date` Date,
     `cost_source` String,

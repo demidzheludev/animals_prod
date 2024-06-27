@@ -12,7 +12,7 @@ def get_staging_costs():
 def clickhouse_costs_transfer_function():
     client = clickhouse_connect.get_client(host='158.160.169.66', username='', password='') 
     costs = get_staging_costs()
-    database_name = 'my_database'
+    database_name = 'dwh'
     table_name = 'costs'
     client.query(f'TRUNCATE TABLE {database_name}.{table_name}')
     client.insert_df(f'{database_name}.{table_name}', costs)

@@ -1,4 +1,4 @@
-CREATE TABLE my_database.country
+CREATE TABLE dwh.country
 (
     `id` UInt32,
     `country_name` String,

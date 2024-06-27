@@ -12,7 +12,7 @@ def get_inter_data_revenue():
 def clickhouse_tranfser_function():
     client = clickhouse_connect.get_client(host='158.160.169.66', username='', password='') 
     data_revenue = get_inter_data_revenue()
-    database_name = 'my_database'
+    database_name = 'dwh'
     table_name = 'inter_data_revenue'
     client.query(f'TRUNCATE TABLE {database_name}.{table_name}')
     client.insert_df(f'{database_name}.{table_name}', data_revenue)

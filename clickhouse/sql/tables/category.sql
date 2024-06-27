@@ -1,4 +1,4 @@
-CREATE TABLE my_database.category
+CREATE TABLE dwh.category
 (
     `id` UInt32,
     `category_name` String,

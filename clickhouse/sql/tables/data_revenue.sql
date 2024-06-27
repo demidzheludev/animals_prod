@@ -1,4 +1,4 @@
-CREATE TABLE my_database.data_revenue
+CREATE TABLE dwh.data_revenue
 (
     `row_id` UInt32,
     `order_id` UInt32,
