@@ -68,7 +68,7 @@ WITH
         FROM cross_date_source AS crs
         LEFT JOIN cte_data_revenue AS dr 
         ON (crs.order_date = dr.order_date) AND (crs.last_source = dr.last_source)
-        LEFT JOIN my_database.costs AS c 
+        LEFT JOIN dwh.costs AS c 
         ON (crs.order_date = c.cost_date) AND (crs.last_source = c.cost_source)
     )
 SELECT
