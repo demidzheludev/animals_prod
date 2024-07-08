@@ -1,4 +1,4 @@
-CREATE VIEW my_database.cohort
+CREATE VIEW dwh.cohort
 (
     `min_date` Date,
     `order_date` Date,
@@ -14,11 +14,11 @@ WITH
     cte AS
     (
         SELECT *
-        FROM my_database.inter_data_revenue
+        FROM dwh.inter_data_revenue
         WHERE status = 'pending'
         UNION ALL
         SELECT *
-        FROM my_database.data_revenue
+        FROM dwh.data_revenue
         WHERE status = 'accepted'
     ),
     user_min_date AS
@@ -80,7 +80,7 @@ WITH
             0 AS orders,
             visits,
             costs
-        FROM my_database.costs
+        FROM dwh.costs
     )
 SELECT *
 FROM union_data;
