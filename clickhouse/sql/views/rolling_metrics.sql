@@ -1,4 +1,4 @@
-CREATE VIEW my_database.rolling_metrics
+CREATE VIEW dwh.rolling_metrics
 (
     `order_date` Date,
     `last_source` String,
@@ -24,7 +24,7 @@ WITH
     last_src AS
     (
         SELECT last_source
-        FROM my_database.data_revenue
+        FROM dwh.data_revenue
         GROUP BY last_source
     ),
     cross_date_source AS
@@ -45,11 +45,11 @@ WITH
         FROM
         (
             SELECT *
-            FROM my_database.inter_data_revenue
+            FROM dwh.inter_data_revenue
             WHERE status = 'pending'
             UNION ALL
             SELECT *
-            FROM my_database.data_revenue
+            FROM dwh.data_revenue
             WHERE status = 'accepted'
         ) AS subq
         GROUP BY

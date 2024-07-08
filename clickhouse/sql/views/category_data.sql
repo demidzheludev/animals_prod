@@ -1,4 +1,4 @@
-CREATE VIEW my_database.category_data
+CREATE VIEW dwh.category_data
 (
     `order_month` UInt8,
     `category_name` String,
@@ -13,11 +13,11 @@ WITH
     cte AS
     (
         SELECT *
-        FROM my_database.inter_data_revenue
+        FROM dwh.inter_data_revenue
         WHERE status = 'pending'
         UNION ALL
         SELECT *
-        FROM my_database.data_revenue
+        FROM dwh.data_revenue
         WHERE status = 'accepted'
     ),
 
@@ -36,7 +36,7 @@ WITH
             countDistinct(order_id) AS orders,
             CAST(round(sum(revenue),2),'Decimal64(2)') AS revenue
         FROM cte_x_month AS cte
-        LEFT JOIN my_database.category AS c ON cte.category_id = c.id
+        LEFT JOIN dwh.category AS c ON cte.category_id = c.id
         GROUP BY
             cte.order_month,
             c.category_name
